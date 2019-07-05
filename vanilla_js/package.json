@@ -1,0 +1,26 @@
+{
+  "name": "myimdb_clone",
+  "version": "1.0.0",
+  "description": "My clone of the IMDB movie database website using vanilla JS and OMDB API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "IMDB",
+    "clone",
+    "movie",
+    "database",
+    "javascript",
+    "omdb",
+    "vanilla",
+    "api"
+  ],
+  "author": "dmilojkovic76@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0"
+  }
+}
