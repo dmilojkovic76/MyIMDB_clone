@@ -8,14 +8,68 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>My IMBD Clone</h1>
+	<nav>
 
-	<form action="">
-		<label for="search_box">OMDb string to search for:</label>
-		<input type="search" name="search_box" id="search_box">
+		<div class="logo">
+			<h1>OMDb</h1>
+		</div>
 
-		<button type="submit">Search OMDb</button>
-	</form>
+		<div class="navbar">
+
+			<div class="nav-top">
+				<form action="">
+					<input type="search" name="search_box" id="search_box" placeholder="Find Movies, TV Shows and more...">
+					<select name="" id="">
+						<option value="All">All</option>
+						<option value="Titles">Titles</option>
+						<option value="TV Episodes">TV Episodes</option>
+						<option value="Names">Names</option>
+						<option value="Companies">Companies</option>
+						<option value="Keywords">Keywords</option>
+						<option value="AdvancedSearch">AdvancedSearch>></option>
+					</select>
+					<button type="submit">></button>
+				</form>
+				<div class="nav-top-other">
+					OMDbPro
+					HELP
+					Face
+					Insta
+					Twitc
+					Twitter
+					YouTube
+				</div>
+			</div>
+
+			<div class="nav-btm">
+				<div class="nav-drops">
+					<select name="" id="">Movies, TV & Showtimes
+						<option value="movie">Movies</option>
+						<option value="tvshow">TV Show</option>
+						<option value="show">Show</option>
+					</select>
+					<select name="" id="">Celebs, Events & Photos
+						<option value="Celebs">Celebs</option>
+						<option value="Events">Events</option>
+						<option value="Photos">Photos</option>
+					</select>
+					<select name="" id="">News & Community
+						<option value="News">News</option>
+						<option value="Community">Community</option>
+					</select><select name="" id="">Watchlist
+						<option value>Watchlist</option>
+					</select>
+				</div>
+
+				<button>
+					Sign in
+				</button>
+			</div>
+
+		</div>
+	</nav>
+
+	<div id="results"></div>
 
 	<script src="app.js"></script>
 </body>

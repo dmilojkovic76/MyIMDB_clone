@@ -2,8 +2,36 @@ html, body{
 	margin:0;
 	padding:0;
 	box-sizing: border-box;
+	background: #444444;
 }
 
 h1{
-	text-decoration: underline;
+	background-color: #ee6666;
+	padding: 10px;
+	margin: 16px;
+	border-radius: 5px;
+	color: black;
+}
+
+nav{
+	margin-top: 16px;
+	display: flex;
+	flex-direction: row;
+	background: black;
+	color: whitesmoke;
+}
+
+.nav-top{
+	display: flex;
+}
+.nav-btm{
+	display: flex;
+}
+
+#results{
+	border: 1px solid #444444;
+	border-radius: 15px;
+	background-color: #ededed;
+	margin: 16px;
+	padding: 16px;
 }
