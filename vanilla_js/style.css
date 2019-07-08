@@ -2,7 +2,15 @@ html, body{
 	margin:0;
 	padding:0;
 	box-sizing: border-box;
+}
+
+.main{
+	max-width: 960px;
+	margin: auto;
 	background: #444444;
+	border: 1px solid #111;
+	box-shadow: 3px 2px 3px #111;
+	min-height: 100vh;
 }
 
 h1{
@@ -34,4 +42,11 @@ nav{
 	background-color: #ededed;
 	margin: 16px;
 	padding: 16px;
+	visibility: hidden;
+}
+
+.movie-results{
+	width: 100%;
+	display: grid;
+	grid-auto-columns: 3;
 }

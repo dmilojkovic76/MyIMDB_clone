@@ -8,67 +8,69 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<nav>
+	<div id="main" class="main">
+		<nav>
 
-		<div class="logo">
-			<h1>OMDb</h1>
-		</div>
-
-		<div class="navbar">
-
-			<div class="nav-top">
-				<form action="">
-					<input type="search" name="search_box" id="search_box" placeholder="Find Movies, TV Shows and more...">
-					<select name="search-type" id="search-type">
-						<option value="all">All</option>
-						<option value="titles">Titles</option>
-						<option value="episode">TV Episodes</option>
-						<option value="series">Series</option>
-						<option value="imdbs">IMDb IDs</option>
-						<option value="advsearch">AdvancedSearch>></option>
-					</select>
-					<button type="submit">></button>
-				</form>
-				<div class="nav-top-other">
-					OMDbPro
-					HELP
-					Face
-					Insta
-					Twitc
-					Twitter
-					YouTube
-				</div>
+			<div class="logo">
+				<h1>OMDb</h1>
 			</div>
 
-			<div class="nav-btm">
-				<div class="nav-drops">
-					<select name="" id="">Movies, TV & Showtimes
-						<option value="movie">Movies</option>
-						<option value="tvshow">TV Show</option>
-						<option value="show">Show</option>
-					</select>
-					<select name="" id="">Celebs, Events & Photos
-						<option value="Celebs">Celebs</option>
-						<option value="Events">Events</option>
-						<option value="Photos">Photos</option>
-					</select>
-					<select name="" id="">News & Community
-						<option value="News">News</option>
-						<option value="Community">Community</option>
-					</select><select name="" id="">Watchlist
-						<option value>Watchlist</option>
-					</select>
+			<div class="navbar">
+
+				<div class="nav-top">
+					<form action="">
+						<input type="search" name="search_box" id="search_box" placeholder="Find Movies, TV Shows and more...">
+						<select name="search-type" id="search-type">
+							<option value="all">All</option>
+							<option value="titles">Titles</option>
+							<option value="episode">TV Episodes</option>
+							<option value="series">Series</option>
+							<option value="imdbs">IMDb IDs</option>
+							<option value="advsearch">AdvancedSearch>></option>
+						</select>
+						<button type="submit">></button>
+					</form>
+					<div class="nav-top-other">
+						OMDbPro
+						HELP
+						Face
+						Insta
+						Twitc
+						Twitter
+						YouTube
+					</div>
 				</div>
 
-				<button>
-					Sign in
-				</button>
+				<div class="nav-btm">
+					<div class="nav-drops">
+						<select name="" id="">Movies, TV & Showtimes
+							<option value="movie">Movies</option>
+							<option value="tvshow">TV Show</option>
+							<option value="show">Show</option>
+						</select>
+						<select name="" id="">Celebs, Events & Photos
+							<option value="Celebs">Celebs</option>
+							<option value="Events">Events</option>
+							<option value="Photos">Photos</option>
+						</select>
+						<select name="" id="">News & Community
+							<option value="News">News</option>
+							<option value="Community">Community</option>
+						</select><select name="" id="">Watchlist
+							<option value>Watchlist</option>
+						</select>
+					</div>
+
+					<button>
+						Sign in
+					</button>
+				</div>
+
 			</div>
+		</nav>
 
-		</div>
-	</nav>
-
-	<div id="results"></div>
+		<div id="results"></div>
+	</div>
 
 	<script src="app.js"></script>
 </body>
