@@ -1,7 +1,7 @@
 const OMDB_API_URL = 'http://www.omdbapi.com/?apikey=85055747&';
 
 const searchForm = document.querySelector('form');
-const searchBox = document.querySelector('#search_box');
+const searchBox = document.querySelector('#search-box');
 const searchType = document.querySelector('#search-type');
 const results = document.querySelector('#results');
 
