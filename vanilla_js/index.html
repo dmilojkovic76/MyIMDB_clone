@@ -5,14 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>OMDb search - MyIMDB Clone</title>
+	<!-- Import free Google fonts -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:700&text=OMDb&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700&display=swap">
+	<!-- Fontawesome BootstrapCDN -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css" rel="stylesheet">
+	<!-- My Stylesheet -->
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<!-- The main wrapper for all content -->
 	<div id="main" class="main">
 		<nav>
-
 			<div class="logo">
 				OMDb
 			</div>
@@ -30,16 +34,20 @@
 							<option value="imdbs">IMDb IDs</option>
 							<option value="advsearch">AdvancedSearch>></option>
 						</select>
-						<button type="submit">></button>
+						<button type="submit" id="search-start">
+							<i class="fas fa-search"></i>
+						</button>
 					</form>
 					<div class="nav-top-other">
 						OMDbPro
 						<a href="#">HELP</a>
-						<a href="#">facebook</a>
-						<a href="#">instagram</a>
-						<a href="#">twitch</a>
-						<a href="#">twitter</a>
-						<a href="#">youtube</a>
+						<div class="socials">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-twitch"></i></a>
+							<a href="#"><i class="fab fa-twitter"></i></a>
+							<a href="#"><i class="fab fa-youtube"></i></a>
+						</div>
 					</div>
 				</div>
 
@@ -65,7 +73,7 @@
 						</select>
 					</div>
 
-					<button>
+					<button class="sign-in">
 						Sign in
 					</button>
 				</div>

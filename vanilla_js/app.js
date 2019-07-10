@@ -50,7 +50,6 @@ function createElement(elem, content, src) {
 }
 
 function realtimeSearch(e) {
-	console.log('realtimeSearch Started');
 	const FULL_OMDB_URL = buildURL();
 
 	fetch(FULL_OMDB_URL)
@@ -61,12 +60,14 @@ function realtimeSearch(e) {
 			throw new Error('Network response was not OK!');
 		})
 		.then((resp) => {
-			if (resp.Response) {
-				realtimeSearchDiv.classList.toggle('hidden');
+			if (resp.Response === 'True') {
+				realtimeSearchDiv.classList.remove('hidden');
+				realtimeSearchDiv.classList.add('visible');
 				realtimeSearchDiv.innerText = '';
 				realtimeSearchDiv.appendChild(createElement('h2', `Number of results: ${resp.totalResults}`));
-			} else {
-				realtimeSearchDiv.classList.toggle('hidden');
+			} else if (resp.Response === 'False') {
+				realtimeSearchDiv.classList.add('hidden');
+				realtimeSearchDiv.classList.remove('visible');
 			}
 		})
 		.catch(err => console.error(err));
@@ -84,7 +85,7 @@ function startTheSearch(e) {
 			throw new Error('Network response was not OK!');
 		})
 		.then((resp) => {
-			if (resp.Response) {
+			if (resp.Response === 'True') {
 				resultsDiv.innerText = '';
 				resultsDiv.style.visibility = 'visible';
 				resultsDiv.appendChild(createElement('h2', `Number of results: ${resp.totalResults}`));
@@ -104,5 +105,5 @@ function startTheSearch(e) {
 		.catch(err => console.error(err));
 }
 
-searchBox.addEventListener('keydown', realtimeSearch);
+searchBox.addEventListener('input', realtimeSearch);
 searchForm.addEventListener('submit', startTheSearch);
