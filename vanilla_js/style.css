@@ -64,3 +64,14 @@ nav{
 	display: grid;
 	grid-auto-columns: 3;
 }
+
+.realtime-search{
+}
+
+.hidden{
+	visibility: hidden;
+}
+
+.visible{
+	visibility: visible;
+}
