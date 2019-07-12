@@ -37,7 +37,8 @@
 						<button type="submit" id="search-start">
 							<i class="fas fa-search"></i>
 						</button>
-					</form>
+					</form> <!-- search-form -->
+
 					<div class="nav-top-other">
 						OMDbPro
 						<a href="#">HELP</a>
@@ -47,41 +48,63 @@
 							<a href="#"><i class="fab fa-twitch"></i></a>
 							<a href="#"><i class="fab fa-twitter"></i></a>
 							<a href="#"><i class="fab fa-youtube"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div id="realtime-search" class="realtime-search hidden"></div>
+						</div> <!-- socials -->
+					</div> <!-- nav-top-other -->
+				</div> <!-- nav-top -->
 
 				<div class="nav-btm">
 					<div class="nav-drops">
-						<select name="" id="">Movies, TV & Showtimes
-							<option value="movie">Movies</option>
-							<option value="tvshow">TV Show</option>
-							<option value="show">Show</option>
-						</select>
-						<select name="" id="">Celebs, Events & Photos
-							<option value="Celebs">Celebs</option>
-							<option value="Events">Events</option>
-							<option value="Photos">Photos</option>
-						</select>
-						<select name="" id="">News & Community
-							<option value="News">News</option>
-							<option value="Community">Community</option>
-						</select><select name="" id="">Watchlist
-							<option value>Watchlist</option>
-						</select>
-					</div>
+						<div class="v-spacer"></div>
+						<div id="movies-tv-showtimes" class="nav-drop">
+							Movies, TV & Showtimes
+							<div>
+								<option value="movie">Movies</option>
+								<option value="tvshow">TV Show</option>
+								<option value="show">Show</option>
+							</div>
+						</div>
+						<div class="v-spacer"></div>
+						<div id="celebs-events-photos" class="nav-drop">
+							Celebs, Events & Photos
+							<div>
+								<option value="Celebs">Celebs</option>
+								<option value="Events">Events</option>
+								<option value="Photos">Photos</option>
+							</div>
+						</div>
+						<div class="v-spacer"></div>
+						<div id="news-community" class="nav-drop">
+							News & Community
+							<div>
+								<option value="News">News</option>
+								<option value="Community">Community</option>
+							</div>
+						</div>
+						<div class="v-spacer"></div>
+						<div id="watchlist" class="nav-drop">
+							Watchlist
+							<div>
+								<option value>Watchlist</option>
+							</div>
+						</div>
+						<div class="v-spacer"></div>
+					</div> <!-- nav-drops -->
 
 					<button class="sign-in">
 						Sign in
 					</button>
-				</div>
+				</div> <!-- nav-btm -->
 
-			</div>
-		</nav>
+			</div> <!-- navbar -->
 
+		</nav> <!-- nav -->
+
+		<!-- This gets populated after the user has commited the search -->
 		<div id="results"></div>
+
+		<!-- The list of search results that pops up as soon as some results came back -->
+		<div id="realtime-search" class="realtime-search hidden"></div>
+
 	</div>
 
 	<script src="app.js"></script>
