@@ -5,6 +5,15 @@ const searchBox = document.querySelector('#search-box');
 const searchType = document.querySelector('#search-type');
 const resultsDiv = document.querySelector('#results');
 const realtimeSearchDiv = document.querySelector('#realtime-search');
+const moviesTvEpisodes = document.querySelector('#movies-tv-episodes');
+const celebsEventsPhotos = document.querySelector('#celebs-events-photos');
+const newsCommunity = document.querySelector('#news-community');
+const watchlist = document.querySelector('#watchlist');
+// const dropdown1 = document.querySelector('.nav-drop-1');
+// const dropdown2 = document.querySelector('.nav-drop-2');
+// const dropdown3 = document.querySelector('.nav-drop-3');
+// const dropdown4 = document.querySelector('.nav-drop-4');
+
 
 function checkSearchType(value) {
 	const obj = {};
@@ -50,6 +59,16 @@ function createElement(elem, content, src) {
 	return element;
 }
 
+function hideDropdown(e) {
+	// if the mouse is out of the bounds of the src element hide the child
+	// but also check if it is out of childs bounds
+	e.srcElement.children[1].style.visibility = 'hidden';
+}
+
+function showDropdown(e) {
+	e.srcElement.children[1].style.visibility = 'visible';
+}
+
 // This fires whenever the user types something in the search box
 function realtimeSearch(e) {
 	const FULL_OMDB_URL = buildURL();
@@ -81,7 +100,7 @@ function realtimeSearch(e) {
 				realtimeSearchDiv.classList.remove('visible');
 			}
 		})
-		.catch(err => console.error(err));
+		.catch(err => console.error(`Event ${e} caused an error`, err));
 }
 
 // This fires when a user has committed the search either by clicking on a search button,
@@ -135,3 +154,15 @@ function startTheSearch(e) {
 
 searchBox.addEventListener('input', realtimeSearch);
 searchForm.addEventListener('submit', startTheSearch);
+
+moviesTvEpisodes.addEventListener('mouseover', showDropdown);
+moviesTvEpisodes.addEventListener('mouseout', hideDropdown);
+
+celebsEventsPhotos.addEventListener('mouseover', showDropdown);
+celebsEventsPhotos.addEventListener('mouseout', hideDropdown);
+
+newsCommunity.addEventListener('mouseover', showDropdown);
+newsCommunity.addEventListener('mouseout', hideDropdown);
+
+watchlist.addEventListener('mouseover', showDropdown);
+watchlist.addEventListener('mouseout', hideDropdown);
