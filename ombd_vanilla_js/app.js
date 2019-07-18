@@ -156,13 +156,13 @@ searchBox.addEventListener('input', realtimeSearch);
 searchForm.addEventListener('submit', startTheSearch);
 
 moviesTvEpisodes.addEventListener('mouseover', showDropdown);
-moviesTvEpisodes.addEventListener('mouseout', hideDropdown);
+// moviesTvEpisodes.addEventListener('mouseout', hideDropdown);
 
 celebsEventsPhotos.addEventListener('mouseover', showDropdown);
-celebsEventsPhotos.addEventListener('mouseout', hideDropdown);
+// celebsEventsPhotos.addEventListener('mouseout', hideDropdown);
 
 newsCommunity.addEventListener('mouseover', showDropdown);
-newsCommunity.addEventListener('mouseout', hideDropdown);
+// newsCommunity.addEventListener('mouseout', hideDropdown);
 
 watchlist.addEventListener('mouseover', showDropdown);
-watchlist.addEventListener('mouseout', hideDropdown);
+// watchlist.addEventListener('mouseout', hideDropdown);

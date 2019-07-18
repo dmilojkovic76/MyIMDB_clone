@@ -71,13 +71,16 @@ nav{
 .nav-top-other{
 	color: #ededed;
 	font-size: 90%;
+
+	a{
+		color: #ededed;
+		text-decoration: none;
+	}
 }
-.nav-top-other a{
-	color: #ededed;
-	text-decoration: none;
-}
-.socials a{
+.socials{
+	a{
 	display: inline-block;
+	}
 }
 .nav-btm{
 	display: flex;
@@ -96,17 +99,16 @@ nav{
 	min-width: 80px;
 	max-width: 110px;
 	padding: 0 12px;
-}
-.nav-drop:hover{
-	background-image: linear-gradient(rgba(200,200,200,0.1), rgba(200,200,200,0.3), rgba(200,200,200,0.1));
+
+	&:hover{
+		background-image: linear-gradient(rgba(200,200,200,0.1), rgba(200,200,200,0.3), rgba(200,200,200,0.1));
+	}
 }
 .dropdown{
-	/* display: none; */
 	visibility: hidden;
 	background-color: #ededed;
 	color: #151515;
 	border-radius: 0 0 8px 8px;
-	/* margin-top: 8px; */
 	padding: 16px 32px;
 }
 .v-spacer{

@@ -1,0 +1,212 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+  max-width: 960px;
+  margin: auto;
+  background: #333333;
+  border: 1px solid #111;
+  -webkit-box-shadow: 0 0 8px 0px rgba(11, 11, 11, 0.8);
+          box-shadow: 0 0 8px 0px rgba(11, 11, 11, 0.8);
+  min-height: 100vh;
+}
+
+nav {
+  margin-top: 16px;
+  padding: 0 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background: #151515;
+  color: whitesmoke;
+}
+
+.navbar {
+  width: 100%;
+  padding-top: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ee6666), to(#e15e5e));
+  background-image: linear-gradient(#ee6666, #e15e5e);
+  padding: 0 15px;
+  margin: 16px 16px 16px 0;
+  border-radius: 5px;
+  color: black;
+}
+
+.nav-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#search-box {
+  border-radius: 4px 0 0 4px;
+  border: 1px solid white;
+  padding: 8px;
+  min-width: 80px;
+  width: 420px;
+}
+
+#search-type {
+  padding: 8px;
+  min-width: 35px;
+  width: 80px;
+  border: none;
+}
+
+#search-start {
+  background: #e15e5e;
+  padding: 8px;
+  border: 1px solid #e15e5e;
+  border-radius: 0 4px 4px 0;
+}
+
+.nav-top-other {
+  color: #ededed;
+  font-size: 90%;
+}
+
+.nav-top-other a {
+  color: #ededed;
+  text-decoration: none;
+}
+
+.socials a {
+  display: inline-block;
+}
+
+.nav-btm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 36px;
+}
+
+.nav-drops {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: whitesmoke;
+}
+
+.nav-drop {
+  font-size: 90%;
+  height: 100%;
+  min-width: 80px;
+  max-width: 110px;
+  padding: 0 12px;
+}
+
+.nav-drop:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 200, 200, 0.1)), color-stop(rgba(200, 200, 200, 0.3)), to(rgba(200, 200, 200, 0.1)));
+  background-image: linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.1));
+}
+
+.dropdown {
+  visibility: hidden;
+  background-color: #ededed;
+  color: #151515;
+  border-radius: 0 0 8px 8px;
+  padding: 16px 32px;
+}
+
+.v-spacer {
+  width: 2px;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(200, 200, 200, 0.1)), color-stop(rgba(200, 200, 200, 0.3)), to(rgba(200, 200, 200, 0.1)));
+  background-image: linear-gradient(rgba(200, 200, 200, 0.1), rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.1));
+  color: rgba(0, 0, 0, 0);
+}
+
+.sign-in {
+  background: #e15e5e;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 36px 6px 36px;
+  height: 28px;
+  margin-bottom: 6px;
+}
+
+/* The list of search results that pops up as soon as some results came back */
+.realtime-search {
+  position: absolute;
+  top: 103px;
+  left: 50%;
+  z-index: 10;
+  background: #ededed;
+  border-radius: 0 0 5px 5px;
+  color: #111;
+  padding: 16px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/* This gets populated after the user has commited the search */
+#results {
+  border: 1px solid #444444;
+  border-radius: 15px;
+  background-color: #ededed;
+  margin: 16px;
+  padding: 16px;
+  visibility: hidden;
+}
+
+/* this gets created dynamically with js as the result comes back from API fetch call */
+.movie-results {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 3;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+/*# sourceMappingURL=style.css.map */
