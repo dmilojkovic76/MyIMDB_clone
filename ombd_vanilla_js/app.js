@@ -54,8 +54,6 @@ function loadRandomMovie() {
 		.then(resp => {
 			fetch(resp.Poster, {mode: 'cors'})
 				.then( poster => {
-					console.log(poster);
-
 					if(poster.ok){
 						randomMovieImg.setAttribute('src', poster.url);
 						randomMovieImg.setAttribute('alt', resp.Title);
@@ -130,7 +128,6 @@ function realtimeSearch(e) {
 // This fires when a user has committed the search either by clicking on a search button,
 // or by pressing enter/return key
 function startTheSearch(e, value) {
-	console.log(`The search called with e: ${e} and value: ${value}`);
 	if (e) e.preventDefault();
 	const FULL_OMDB_URL = value ? value : buildURL();
 
@@ -158,7 +155,9 @@ function startTheSearch(e, value) {
 
 				// and start filling in the results container with the data:
 				// create the header with info
-				resultsDiv.appendChild(createElement('h3', `Number of results: ${resp.totalResults}`));
+				if (resp.totalResults) {
+					resultsDiv.appendChild(createElement('h3', `Number of results: ${resp.totalResults}`));
+				}
 				// create the div for movie results...
 				resultsDiv.appendChild(createElement('div', 'movie-results'));
 				const movieResults = document.querySelector('.movie-results');
