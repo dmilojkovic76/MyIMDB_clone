@@ -34,34 +34,34 @@ function buildURL() {
 	return `${OMDB_API_URL}${params.param}=${searchBox.value}&type=${params.type}`;
 }
 
-function buildRandomURL(){
-	const randomID = `tt0${Math.floor(Math.random()*1000000)}`;
-	return `${OMDB_API_URL}i=${randomID}`
+function buildRandomURL() {
+	const randomID = `tt0${Math.floor(Math.random() * 1000000)}`;
+	return `${OMDB_API_URL}i=${randomID}`;
 }
 
 function loadRandomMovie() {
-	const randomMovieImg = document.querySelector("#random-movie-img");
-	const randomMovieTitle = document.querySelector("#random-movie-title");
-	const randomMOvieRating = document.querySelector("#random-movie-rating");
-	const RANDOM_URL = buildRandomURL()
+	const randomMovieImg = document.querySelector('#random-movie-img');
+	const randomMovieTitle = document.querySelector('#random-movie-title');
+	const randomMOvieRating = document.querySelector('#random-movie-rating');
+	const RANDOM_URL = buildRandomURL();
 	fetch(RANDOM_URL)
-		.then(res => {
-			if(res.ok) {
+		.then((res) => {
+			if (res.ok) {
 				return res.json();
 			}
 			throw new Error('Network response was not OK');
 		})
-		.then(resp => {
-			fetch(resp.Poster, {mode: 'cors'})
-				.then( poster => {
-					if(poster.ok){
+		.then((resp) => {
+			fetch(resp.Poster, { mode: 'cors' })
+				.then((poster) => {
+					if (poster.ok) {
 						randomMovieImg.setAttribute('src', poster.url);
 						randomMovieImg.setAttribute('alt', resp.Title);
 					} else randomMovieImg.alt = 'NO Image!';
 				})
-				.catch(errorPoster => {
-					randomMovieImg.alt = 'IMDb Restricted Image!'
-					console.error(errorPoster)
+				.catch((errorPoster) => {
+					randomMovieImg.alt = 'IMDb Restricted Image!';
+					console.error(errorPoster);
 				});
 			randomMovieTitle.innerText = resp.Title;
 			randomMovieTitle.setAttribute('Title', resp.Title);
@@ -129,7 +129,9 @@ function realtimeSearch(e) {
 // or by pressing enter/return key
 function startTheSearch(e, value) {
 	if (e) e.preventDefault();
-	const FULL_OMDB_URL = value ? value : buildURL();
+	console.log(e);
+
+	const FULL_OMDB_URL = value || buildURL();
 
 	fetch(FULL_OMDB_URL)
 		.then((res) => {
@@ -162,8 +164,8 @@ function startTheSearch(e, value) {
 				resultsDiv.appendChild(createElement('div', 'movie-results'));
 				const movieResults = document.querySelector('.movie-results');
 
-				if(resp.Search){
-					// loop through the list of results and for each movie create a div and populate with data.
+				if (resp.Search) {
+					// loop through results and for each movie - create a div and populate it with data.
 					let i = 0;
 					resp.Search.forEach((movie) => {
 						movieResults.appendChild(createElement('div', 'movie-result', `movie-result-${i}`));
@@ -173,8 +175,8 @@ function startTheSearch(e, value) {
 						i += 1;
 					});
 				} else {
-					movieResults.appendChild(createElement('div', 'movie-result', `movie-result`));
-					const movieResult = document.querySelector(`#movie-result`);
+					movieResults.appendChild(createElement('div', 'movie-result', 'movie-result'));
+					const movieResult = document.querySelector('#movie-result');
 					movieResult.appendChild(createElement('img', resp.Title, resp.Poster));
 					movieResult.appendChild(createElement('p', resp.Title));
 				}
