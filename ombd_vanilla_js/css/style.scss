@@ -79,7 +79,7 @@ nav{
 			.nav-top-other{
 				color: #ededed;
 				font-size: 90%;
-			
+
 				a{
 					color: #ededed;
 					text-decoration: none;
@@ -90,7 +90,7 @@ nav{
 					}
 				}
 			}
-			
+
 		}
 
 		.nav-btm{
@@ -98,25 +98,25 @@ nav{
 			align-items: flex-end;
 			justify-content: space-between;
 			height: 36px;
-		
+
 			.nav-drops{
 				height: 100%;
 				display: flex;
 				color: whitesmoke;
-			
+
 				.v-spacer{
 					width: 2px;
 					height: 100%;
 					background-image: linear-gradient(rgba(200,200,200,0.1), rgba(200,200,200,0.3), rgba(200,200,200,0.1));
 					color: rgba(0,0,0,0);
 				}
-		
+
 				.nav-drop{
 					height: 100%;
 					font-size: 90%;
 					min-width: 100px;
 					max-width: 120px;
-		
+
 					&:hover{
 						background-image: linear-gradient(rgba(200,200,200,0.1), rgba(200,200,200,0.3), rgba(200,200,200,0.1));
 					}
@@ -124,16 +124,17 @@ nav{
 					h5{
 						font-size: 13px;
 						color: #A58500;
-						text-transform: capitalize;
+						text-transform: uppercase;
+						margin-left: 10px;
 					}
-		
+
 					.dropbtn{
 						background: none;
 						color: whitesmoke;
 						border: none;
 						height: 100%;
 					}
-		
+
 					.dropdown{
 						background-color: #ededed;
 						color: #151515;
@@ -147,19 +148,39 @@ nav{
 						.dropdown-text{
 							height: calc(100% - 36px);
 							width: 20%;
-							padding: 16px;
 							float: left;
 						}
 
 						.dropdown-img{
 							height: 100%;
+							width: 100%;
 							min-width: 410px;
 							position: absolute;
 							left: 40%;
-							background: url('https://cdn.pixabay.com/photo/2016/11/15/07/09/photo-manipulation-1825450_960_720.jpg');
-							background-repeat: no-repeat;
-							background-size: cover;
 						}
+
+						#random-movie{
+
+							#random-movie-footer{
+								background: rgba(0, 0, 0, 0.6);
+								position: absolute;
+								bottom: 0;
+								height: 20%;
+								width: 100%;
+
+								a{
+									text-decoration: none;
+									color: #ededed;
+									display: block;
+									padding: 10px 0 0 16px;
+
+									&:hover{
+										text-decoration: underline;
+									}
+								}
+							}
+						}
+
 					}
 				}
 				.nav-drop-1{
@@ -169,8 +190,8 @@ nav{
 					&:hover {
 						.drop-1{
 							display: block;
-							min-width: 720px;
-						}	
+							min-width: 775px;
+						}
 					}
 				}
 				.nav-drop-2{
@@ -180,8 +201,8 @@ nav{
 					&:hover {
 						.drop-2{
 							display: block;
-							min-width: 610px;
-						}	
+							min-width: 650px;
+						}
 					}
 				}
 				.nav-drop-3{
@@ -191,8 +212,8 @@ nav{
 					&:hover {
 						.drop-3{
 							display: block;
-							min-width: 500px;
-						}	
+							min-width: 530px;
+						}
 					}
 				}
 				.nav-drop-4{
@@ -203,13 +224,13 @@ nav{
 						.drop-4{
 							display: block;
 							min-width: 420px;
-							right: 310px;
+							right: 300px;
 							height: 240px;
-						}	
+						}
 					}
 				}
 			}
-		
+
 			.sign-in{
 				background: #e15e5e;
 				border: none;

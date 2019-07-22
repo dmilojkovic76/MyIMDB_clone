@@ -155,7 +155,8 @@ nav .navbar .nav-btm .nav-drops .nav-drop:hover {
 nav .navbar .nav-btm .nav-drops .nav-drop h5 {
   font-size: 13px;
   color: #A58500;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  margin-left: 10px;
 }
 
 nav .navbar .nav-btm .nav-drops .nav-drop .dropbtn {
@@ -180,18 +181,34 @@ nav .navbar .nav-btm .nav-drops .nav-drop .dropdown {
 nav .navbar .nav-btm .nav-drops .nav-drop .dropdown .dropdown-text {
   height: calc(100% - 36px);
   width: 20%;
-  padding: 16px;
   float: left;
 }
 
 nav .navbar .nav-btm .nav-drops .nav-drop .dropdown .dropdown-img {
   height: 100%;
+  width: 100%;
   min-width: 410px;
   position: absolute;
   left: 40%;
-  background: url("https://cdn.pixabay.com/photo/2016/11/15/07/09/photo-manipulation-1825450_960_720.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+nav .navbar .nav-btm .nav-drops .nav-drop .dropdown #random-movie #random-movie-footer {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  height: 20%;
+  width: 100%;
+}
+
+nav .navbar .nav-btm .nav-drops .nav-drop .dropdown #random-movie #random-movie-footer a {
+  text-decoration: none;
+  color: #ededed;
+  display: block;
+  padding: 10px 0 0 16px;
+}
+
+nav .navbar .nav-btm .nav-drops .nav-drop .dropdown #random-movie #random-movie-footer a:hover {
+  text-decoration: underline;
 }
 
 nav .navbar .nav-btm .nav-drops .nav-drop-1 .drop-1 {
@@ -200,7 +217,7 @@ nav .navbar .nav-btm .nav-drops .nav-drop-1 .drop-1 {
 
 nav .navbar .nav-btm .nav-drops .nav-drop-1:hover .drop-1 {
   display: block;
-  min-width: 720px;
+  min-width: 775px;
 }
 
 nav .navbar .nav-btm .nav-drops .nav-drop-2 .drop-2 {
@@ -209,7 +226,7 @@ nav .navbar .nav-btm .nav-drops .nav-drop-2 .drop-2 {
 
 nav .navbar .nav-btm .nav-drops .nav-drop-2:hover .drop-2 {
   display: block;
-  min-width: 610px;
+  min-width: 650px;
 }
 
 nav .navbar .nav-btm .nav-drops .nav-drop-3 .drop-3 {
@@ -218,7 +235,7 @@ nav .navbar .nav-btm .nav-drops .nav-drop-3 .drop-3 {
 
 nav .navbar .nav-btm .nav-drops .nav-drop-3:hover .drop-3 {
   display: block;
-  min-width: 500px;
+  min-width: 530px;
 }
 
 nav .navbar .nav-btm .nav-drops .nav-drop-4 .drop-4 {
@@ -228,7 +245,7 @@ nav .navbar .nav-btm .nav-drops .nav-drop-4 .drop-4 {
 nav .navbar .nav-btm .nav-drops .nav-drop-4:hover .drop-4 {
   display: block;
   min-width: 420px;
-  right: 310px;
+  right: 300px;
   height: 240px;
 }
 

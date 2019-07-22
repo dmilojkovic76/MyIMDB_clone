@@ -5,14 +5,6 @@ const searchBox = document.querySelector('#search-box');
 const searchType = document.querySelector('#search-type');
 const resultsDiv = document.querySelector('#results');
 const realtimeSearchDiv = document.querySelector('#realtime-search');
-// const moviesTvEpisodes = document.querySelector('#movies-tv-episodes');
-// const celebsEventsPhotos = document.querySelector('#celebs-events-photos');
-// const newsCommunity = document.querySelector('#news-community');
-// const watchlist = document.querySelector('#watchlist');
-// const dropdown1 = document.querySelector('.nav-drop-1');
-// const dropdown2 = document.querySelector('.nav-drop-2');
-// const dropdown3 = document.querySelector('.nav-drop-3');
-// const dropdown4 = document.querySelector('.nav-drop-4');
 
 
 function checkSearchType(value) {
@@ -39,7 +31,48 @@ function checkSearchType(value) {
 // Build the url to fetch from API based on the input of the user
 function buildURL() {
 	const params = checkSearchType(searchType.value);
-	return `${OMDB_API_URL}${params.param}='${searchBox.value}'&type=${params.type}`;
+	return `${OMDB_API_URL}${params.param}=${searchBox.value}&type=${params.type}`;
+}
+
+function buildRandomURL(){
+	const randomID = `tt0${Math.floor(Math.random()*1000000)}`;
+	return `${OMDB_API_URL}i=${randomID}`
+}
+
+function loadRandomMovie() {
+	const randomMovieImg = document.querySelector("#random-movie-img");
+	const randomMovieTitle = document.querySelector("#random-movie-title");
+	const randomMOvieRating = document.querySelector("#random-movie-rating");
+	const RANDOM_URL = buildRandomURL()
+	fetch(RANDOM_URL)
+		.then(res => {
+			if(res.ok) {
+				return res.json();
+			}
+			throw new Error('Network response was not OK');
+		})
+		.then(resp => {
+			fetch(resp.Poster, {mode: 'cors'})
+				.then( poster => {
+					console.log(poster);
+
+					if(poster.ok){
+						randomMovieImg.setAttribute('src', poster.url);
+						randomMovieImg.setAttribute('alt', resp.Title);
+					} else randomMovieImg.alt = 'NO Image!';
+				})
+				.catch(errorPoster => {
+					randomMovieImg.alt = 'IMDb Restricted Image!'
+					console.error(errorPoster)
+				});
+			randomMovieTitle.innerText = resp.Title;
+			randomMovieTitle.setAttribute('Title', resp.Title);
+			randomMovieTitle.setAttribute('onClick', `startTheSearch(null, "${RANDOM_URL}");return false;`);
+			randomMOvieRating.innerText = `IMDb rating: ${resp.imdbRating}/10 from ${resp.imdbVotes} IMDb user votes`;
+			randomMOvieRating.setAttribute('Title', resp.Title);
+			randomMOvieRating.setAttribute('onClick', `startTheSearch(null, "${RANDOM_URL}");return false;`);
+		})
+		.catch(err => console.error('An error occured: ', err));
 }
 
 // Create the specified DOM element with the passed in parammeters
@@ -59,16 +92,6 @@ function createElement(elem, content, src) {
 	}
 	return element;
 }
-
-// function hideDropdown(e) {
-// 	// if the mouse is out of the bounds of the src element hide the child
-// 	// but also check if it is out of childs bounds
-// 	e.srcElement.children[1].style.visibility = 'hidden';
-// }
-
-// function showDropdown(e) {
-// 	e.srcElement.children[1].style.visibility = 'visible';
-// }
 
 // This fires whenever the user types something in the search box
 function realtimeSearch(e) {
@@ -106,9 +129,10 @@ function realtimeSearch(e) {
 
 // This fires when a user has committed the search either by clicking on a search button,
 // or by pressing enter/return key
-function startTheSearch(e) {
-	e.preventDefault();
-	const FULL_OMDB_URL = buildURL();
+function startTheSearch(e, value) {
+	console.log(`The search called with e: ${e} and value: ${value}`);
+	if (e) e.preventDefault();
+	const FULL_OMDB_URL = value ? value : buildURL();
 
 	fetch(FULL_OMDB_URL)
 		.then((res) => {
@@ -139,15 +163,22 @@ function startTheSearch(e) {
 				resultsDiv.appendChild(createElement('div', 'movie-results'));
 				const movieResults = document.querySelector('.movie-results');
 
-				// loop through the list of results and for each movie create a div and populate with data.
-				let i = 0;
-				resp.Search.forEach((movie) => {
-					movieResults.appendChild(createElement('div', 'movie-result', `movie-result-${i}`));
-					const movieResult = document.querySelector(`#movie-result-${i}`);
-					movieResult.appendChild(createElement('img', movie.Title, movie.Poster));
-					movieResult.appendChild(createElement('p', movie.Title));
-					i += 1;
-				});
+				if(resp.Search){
+					// loop through the list of results and for each movie create a div and populate with data.
+					let i = 0;
+					resp.Search.forEach((movie) => {
+						movieResults.appendChild(createElement('div', 'movie-result', `movie-result-${i}`));
+						const movieResult = document.querySelector(`#movie-result-${i}`);
+						movieResult.appendChild(createElement('img', movie.Title, movie.Poster));
+						movieResult.appendChild(createElement('p', movie.Title));
+						i += 1;
+					});
+				} else {
+					movieResults.appendChild(createElement('div', 'movie-result', `movie-result`));
+					const movieResult = document.querySelector(`#movie-result`);
+					movieResult.appendChild(createElement('img', resp.Title, resp.Poster));
+					movieResult.appendChild(createElement('p', resp.Title));
+				}
 			}
 		})
 		.catch(err => console.error(err));
@@ -156,14 +187,4 @@ function startTheSearch(e) {
 searchBox.addEventListener('input', realtimeSearch);
 searchForm.addEventListener('submit', startTheSearch);
 
-// moviesTvEpisodes.addEventListener('mouseover', showDropdown);
-// moviesTvEpisodes.addEventListener('mouseout', hideDropdown);
-
-// celebsEventsPhotos.addEventListener('mouseover', showDropdown);
-// celebsEventsPhotos.addEventListener('mouseout', hideDropdown);
-
-// newsCommunity.addEventListener('mouseover', showDropdown);
-// newsCommunity.addEventListener('mouseout', hideDropdown);
-
-// watchlist.addEventListener('mouseover', showDropdown);
-// watchlist.addEventListener('mouseout', hideDropdown);
+document.addEventListener('DOMContentLoaded', loadRandomMovie);
