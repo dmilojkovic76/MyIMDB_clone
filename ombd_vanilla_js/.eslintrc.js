@@ -8,5 +8,6 @@ module.exports = {
         "indent": ["warn", "tab"],
         "no-console": "off",
         "no-tabs": "off",
+        "max-len": [1, 150],
     },
 };

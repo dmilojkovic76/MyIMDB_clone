@@ -1,12 +1,25 @@
+/**
+ * The URL prefix of the API endpoint with the API key generated for this purpsoe
+ * @const {string}
+ */
 const OMDB_API_URL = 'http://www.omdbapi.com/?apikey=85055747&';
 
+// Constants for storing the references to DOM elements I'll need later
 const searchForm = document.querySelector('form');
 const searchBox = document.querySelector('#search-box');
 const searchType = document.querySelector('#search-type');
 const resultsDiv = document.querySelector('#results');
 const realtimeSearchDiv = document.querySelector('#realtime-search');
 
-
+/**
+ * Return the string value of available search types in OMDb's API
+ * based on the string that was passed in as an argument.
+ * @param {string} value
+ * @example
+ * // returns {'param' : 't', 'type' : 'm'}
+ * checkSearchType('titles');
+ * @returns {Object} Object with 2 keys 'Param' and 'Type' { 'param': 't | i | s', 'type': 'm | episode | series | imdbs | ""' }
+ */
 function checkSearchType(value) {
 	const obj = {};
 	if (value === 'titles') {
@@ -28,18 +41,23 @@ function checkSearchType(value) {
 	return obj;
 }
 
-// Build the url to fetch from API based on the input of the user
+/** Return the URL of the OMDb API endpoint to fetch from - based on users input */
 function buildURL() {
 	const params = checkSearchType(searchType.value);
 	return `${OMDB_API_URL}${params.param}=${searchBox.value}&type=${params.type}`;
 }
 
+/** Return the URL of the OMDb API endpoint to fetch the random title - based on IMDb IDs */
 function buildRandomURL() {
 	const randomID = `tt0${Math.floor(Math.random() * 1000000)}`;
 	return `${OMDB_API_URL}i=${randomID}`;
 }
 
-function loadRandomMovie() {
+/**
+ * 1. Fetch the random title from the OMDb API.
+ * 2. Create DOM elements and display fetched data on the page.
+ */
+function loadRandomMovieDropdown() {
 	const randomMovieImg = document.querySelector('#random-movie-img');
 	const randomMovieTitle = document.querySelector('#random-movie-title');
 	const randomMOvieRating = document.querySelector('#random-movie-rating');
@@ -73,7 +91,13 @@ function loadRandomMovie() {
 		.catch(err => console.error('An error occured: ', err));
 }
 
-// Create the specified DOM element with the passed in parammeters
+/**
+ * Return the DOM element with the passed in parammeters.
+ * @param {string} elem HTML element to be created.
+ * @param {string} content Depending on elem, this will either be img alt text, div classname or text to render on the page.
+ * @param {string} src Depending on elem, this will either be img src attribute or div id.
+ * @returns {DOMelement} DOM element
+ */
 function createElement(elem, content, src) {
 	const element = document.createElement(elem);
 	if (elem === 'img') {
@@ -91,7 +115,11 @@ function createElement(elem, content, src) {
 	return element;
 }
 
-// This fires whenever the user types something in the search box
+/**
+ * This gets called whenever the user types something in the search box
+ * to update the DOM accordingly by creating elements on the page.
+ * @param {event} e Object of the caller event
+ */
 function realtimeSearch(e) {
 	const FULL_OMDB_URL = buildURL();
 
@@ -125,8 +153,12 @@ function realtimeSearch(e) {
 		.catch(err => console.error(`Event ${e} caused an error`, err));
 }
 
-// This fires when a user has committed the search either by clicking on a search button,
-// or by pressing enter/return key
+/**
+ * This fires when a user has committed the search either by clicking on a search button,
+ * or by pressing enter/return key.
+ * @param {event} e Object of the caller event.
+ * @param {string} value (optional) The full OMDb APIs enpoint URL to fetch.
+ */
 function startTheSearch(e, value) {
 	if (e) e.preventDefault();
 	console.log(e);
@@ -185,7 +217,11 @@ function startTheSearch(e, value) {
 		.catch(err => console.error(err));
 }
 
+// Whenever a change is made inside the Search input box on a page
 searchBox.addEventListener('input', realtimeSearch);
+
+// When a user has submitted the search request
 searchForm.addEventListener('submit', startTheSearch);
 
-document.addEventListener('DOMContentLoaded', loadRandomMovie);
+// When the page fully loads, populate the first dropdown menu with the random movie
+document.addEventListener('DOMContentLoaded', loadRandomMovieDropdown);

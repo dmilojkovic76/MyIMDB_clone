@@ -291,6 +291,66 @@ nav .navbar .nav-btm .sign-in {
           transform: translateX(-50%);
 }
 
+footer {
+  background: #ededed;
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #1d1d91;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .footer-infos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 1px solid #1f1f1f71;
+}
+
+footer .footer-infos div {
+  padding: 16px;
+}
+
+footer .footer-infos .btm-mobile {
+  max-width: 40%;
+  border-right: 1px solid #1f1f1f71;
+}
+
+footer .footer-infos .btm-mobile img {
+  height: 40px;
+}
+
+footer .footer-infos .btm-socials {
+  max-width: 16%;
+  border-right: 1px solid #1f1f1f71;
+}
+
+footer .footer-infos .btm-socials a {
+  color: #333333;
+  font-size: 1.3rem;
+  display: inline-block;
+  margin: 10px;
+}
+
+footer .footer-infos .btm-links {
+  max-width: 40%;
+}
+
+footer .footer-infos .btm-links a {
+  display: block;
+  margin: 10px 0;
+}
+
 .hidden {
   visibility: hidden;
 }
